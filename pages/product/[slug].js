@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "../../components/Product";
 import { client, urlFor } from "../../lib/client";
 import {
@@ -9,19 +9,27 @@ import {
 } from "react-icons/ai";
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
-  console.log(product);
+  const [index, setIndex] = useState(0);
   return (
     <div>
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img src={urlFor(image[0])} />
+            <img src={urlFor(image[index])} className="product-detail-image" />
           </div>
-          {/* <div className="small-images-container">
-            {image?.map((item, index) => (
-              <img src={urlFor(item)} className="" onMouseEnter="" />
+          <div className="small-images-container">
+            {image.map((item, index) => (
+              <img
+                src={urlFor(item)}
+                className={
+                  index === index ? "small-image selected-image" : "small-image"
+                }
+                onMouseEnter={() => {
+                  setIndex(index);
+                }}
+              />
             ))}
-          </div> */}
+          </div>
         </div>
         <div className="product-detail-desc">
           <h1>{name}</h1>
