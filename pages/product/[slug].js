@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Product from "../../components/Product";
 import { client, urlFor } from "../../lib/client";
 import {
@@ -7,7 +7,9 @@ import {
   AiOutlinePlus,
   AiOutlineStar,
 } from "react-icons/ai";
+import { Context } from "../../store/CartContext";
 const ProductDetails = ({ product, products }) => {
+  const cartCTX = useContext(Context);
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
   return (
@@ -44,26 +46,33 @@ const ProductDetails = ({ product, products }) => {
             <p>{20}</p>
           </div>
           <h4>Details:</h4>
-          <p className="price">{price}</p>
+          <p className="price">€{price}</p>
           <div className="quantity">
             <h3>Quantitiy</h3>
             <p className="quantity-desc">
               <span className="minus" onClick="">
-                <AiOutlineMinus />
+                <AiOutlineMinus onClick={cartCTX.decrement} />
               </span>
               <span className="num" onClick="">
-                0
+                {cartCTX.qun}
               </span>
               <span className="plus" onClick="">
-                <AiOutlinePlus />
+                <AiOutlinePlus onClick={cartCTX.increment} />
               </span>
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick="">
+            <button
+              type="button"
+              className="add-to-cart"
+              onClick={() => {
+                cartCTX.setQun(0);
+                cartCTX.onAddHandler(product, cartCTX.qun);
+              }}
+            >
               Add to Cart
             </button>
-            <button type="button" className="buy-now" onClick="">
+            <button type="button" className="buy-now">
               Buy Now
             </button>
           </div>
