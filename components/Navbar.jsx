@@ -5,7 +5,6 @@ import { CartContext, Context } from "../store/CartContext";
 import Cart from "./Cart";
 const Navbar = () => {
   const cartCTX = useContext(Context);
-  console.log(cartCTX.showCart);
   return (
     <div className="navbar-container">
       <p className="logo">

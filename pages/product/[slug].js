@@ -10,6 +10,8 @@ import {
 import { Context } from "../../store/CartContext";
 const ProductDetails = ({ product, products }) => {
   const cartCTX = useContext(Context);
+  console.log(cartCTX);
+
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
   return (
@@ -66,7 +68,6 @@ const ProductDetails = ({ product, products }) => {
               type="button"
               className="add-to-cart"
               onClick={() => {
-                cartCTX.setQun(1);
                 cartCTX.onAddHandler(product, cartCTX.qun);
               }}
             >

@@ -607,32 +607,6 @@ span.text-red {
 .product-max-qty {
   margin-top: 10px;
 }
-.githubLink {
-}
-.githubLink:hover {
-  cursor: pointer;
-  color: red;
-}
-.iconsLinks {
-  display: flex;
-  flex-direction: row;
-  gap: 10%;
-  margin-left: -2%;
-}
-
-.github:hover {
-  cursor: pointer;
-
-  border-radius: 15px;
-  color: rgb(30, 29, 29);
-  background: #fff;
-}
-
-.linkedin:hover {
-  cursor: pointer;
-  background-color: #fff;
-  color: rgb(10, 102, 194);
-}
 
 @media screen and (max-width: 800px) {
   .hero-banner-container {
