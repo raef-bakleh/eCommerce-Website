@@ -71,6 +71,11 @@ span.text-red {
   color: gray;
   font-size: 18px;
 }
+.iconsLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
 .cart-icon {
   font-size: 25px;
   color: gray;

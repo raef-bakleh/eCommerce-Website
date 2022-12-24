@@ -66,7 +66,6 @@ export const CartContext = ({ children }) => {
 
     setCartItems(restItemsInCart);
   };
-  
 
   let foundProdukt;
   let index;

@@ -51,7 +51,7 @@ const Cart = () => {
                             )
                           }
                         >
-                          <AiOutlineMinus onClick={cartCTX.decrement} />
+                          <AiOutlineMinus onClick={()=>cartCTX.decrement} />
                         </span>
                         <span className="num">{item.qun}</span>
                         <span
