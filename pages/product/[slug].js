@@ -66,7 +66,7 @@ const ProductDetails = ({ product, products }) => {
               type="button"
               className="add-to-cart"
               onClick={() => {
-                cartCTX.setQun(0);
+                cartCTX.setQun(1);
                 cartCTX.onAddHandler(product, cartCTX.qun);
               }}
             >
