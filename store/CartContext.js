@@ -22,7 +22,6 @@ export const CartContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQun, setTotalQun] = useState(0);
   const [qun, setQun] = useState(1);
-  console.log(totalPrice);
 
   const increment = () => {
     setQun((prevQty) => prevQty + 1);
@@ -35,9 +34,11 @@ export const CartContext = ({ children }) => {
       return prevQun - 1;
     });
   };
-  const onAddHandler = (produkt, qun) => {
-    setTotalPrice((prev) => prev + qun + produkt.price);
+  const onAddHandler = (produkt) => {
+    setTotalPrice((prev) => prev + qun * produkt.price);
     setTotalQun((prev) => prev + qun);
+    setQun(1);
+
     const ifProduktInCart = cartItems.find((item) => item._id === produkt._id);
     if (ifProduktInCart) {
       setCartItems(
@@ -59,36 +60,49 @@ export const CartContext = ({ children }) => {
     }
   };
 
-  const onDeleteHandler = (product, qun) => {
+  const onDeleteHandler = (product) => {
     const restItemsInCart = cartItems.filter((item) => {
       return item._id !== product._id;
     });
 
     setCartItems(restItemsInCart);
+    setTotalPrice((prev) => prev - product.qun * product.price);
+    setTotalQun((prev) => prev - product.qun);
+    setQun(1);
   };
 
   let foundProdukt;
   let index;
 
   const changeCartItemQuantity = (id, action) => {
+    const allMeals = cartItems;
     const cartItemsWithoutTheFoundProduct = cartItems.filter(
       (item) => item._id !== id
     );
     foundProdukt = cartItems.find((item) => item._id === id);
-    index = cartItems.findIndex((produkt) => produkt._id === id);
     if (action === "increment") {
-      setCartItems([
-        { ...foundProdukt, qun: (foundProdukt.qun += 1) },
-        ...cartItemsWithoutTheFoundProduct,
-      ]);
+      setCartItems(
+        allMeals.map((meal) => {
+          if (meal._id === id) {
+            return { ...meal, qun: (meal.qun += 1) };
+          }
+          return meal;
+        })
+      );
+
+      console.log(cartItems);
       setTotalPrice((prev) => prev + foundProdukt.price);
-      setTotalQun((prev) => prev - 1);
+      setTotalQun((prev) => prev + 1);
     } else if (action === "decrement") {
       if (foundProdukt.qun > 1) {
-        setCartItems([
-          ...cartItemsWithoutTheFoundProduct,
-          { ...foundProdukt, qun: (foundProdukt.qun -= 1) },
-        ]);
+        setCartItems(
+          allMeals.map((meal) => {
+            if (meal._id === id) {
+              return { ...meal, qun: (meal.qun -= 1) };
+            }
+            return meal;
+          })
+        );
         setTotalPrice((prev) => prev - foundProdukt.price);
         setTotalQun((prev) => prev - 1);
       }

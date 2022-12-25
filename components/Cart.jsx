@@ -7,12 +7,11 @@ import {
   AiOutlineShopping,
 } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
-import { toast } from "react-hot-toast";
 import { Context } from "../store/CartContext";
 import { urlFor } from "../lib/client";
 const Cart = () => {
   const cartCTX = useContext(Context);
-
+  console.log(cartCTX.cartItems);
   return (
     <div className="cart-wrapper">
       <div className="cart-container">
@@ -23,7 +22,10 @@ const Cart = () => {
         >
           <AiOutlineLeft />
           <span className="heading"> Your cart</span>
-          <span className="cart-num-items"> qunatity itemes</span>
+          <span className="cart-num-items">
+            {" "}
+            {cartCTX.cartItems.length} items
+          </span>
         </button>
 
         <div className="product-container">
@@ -51,7 +53,7 @@ const Cart = () => {
                             )
                           }
                         >
-                          <AiOutlineMinus onClick={()=>cartCTX.decrement} />
+                          <AiOutlineMinus onClick={() => cartCTX.decrement} />
                         </span>
                         <span className="num">{item.qun}</span>
                         <span
@@ -67,7 +69,13 @@ const Cart = () => {
                         </span>
                       </p>
                     </div>
-                    <button type="button" className="remove-item">
+                    <button
+                      type="button"
+                      className="remove-item"
+                      onClick={() => {
+                        cartCTX.onDeleteHandler(item);
+                      }}
+                    >
                       <TiDeleteOutline />
                     </button>
                   </div>
@@ -79,7 +87,7 @@ const Cart = () => {
         <div className="cart-bottom">
           <div className="total">
             <h3>TotalAmount</h3>
-            <h3>{cartCTX.totalPrice.toFixed(2)}</h3>
+            <h3>€{cartCTX.totalPrice.toFixed(2)}</h3>
           </div>
           <div className="btn-container">
             <button type="button" className="btn" onClick="">

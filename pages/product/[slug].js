@@ -10,9 +10,8 @@ import {
 import { Context } from "../../store/CartContext";
 const ProductDetails = ({ product, products }) => {
   const cartCTX = useContext(Context);
-  console.log(cartCTX);
 
-  const { image, name, details, price } = product;
+  const { image, name, details, price, qun } = product;
   const [index, setIndex] = useState(0);
   return (
     <div>
