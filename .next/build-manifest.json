@@ -15,11 +15,6 @@
     "static/development/_middlewareManifest.js"
   ],
   "pages": {
-    "/": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/index.js"
-    ],
     "/_app": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
@@ -31,14 +26,17 @@
       "static/chunks/pages/_error.js"
     ],
     "/login": [
+<<<<<<< HEAD
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/login.js"
     ],
     "/product/[slug]": [
+=======
+>>>>>>> b62cae9e (increment/decrement button)
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/product/[slug].js"
+      "static/chunks/pages/login.js"
     ]
   },
   "ampFirstPages": []
