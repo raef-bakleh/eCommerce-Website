@@ -7,7 +7,7 @@ export const Context = createContext({
   cartItems: [],
   totalPrice: 0,
   totalQun: 0,
-  qun: 1,
+  qun: 0,
   setQun: () => {},
   increment: () => {},
   decrement: () => {},
