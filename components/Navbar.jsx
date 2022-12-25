@@ -10,6 +10,9 @@ const Navbar = () => {
       <p className="logo">
         <Link href={"/"}>Homepage</Link>
       </p>
+      <p className="logo">
+        <Link href={"/login"}>Login</Link>
+      </p>
       <button
         type="button"
         className="cart-icon"

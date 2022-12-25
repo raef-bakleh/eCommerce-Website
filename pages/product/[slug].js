@@ -11,7 +11,9 @@ import { Context } from "../../store/CartContext";
 const ProductDetails = ({ product, products }) => {
   const cartCTX = useContext(Context);
 
-  const { image, name, details, price, qun } = product;
+  const { image, name, details, price, qun, slug } = product;
+  console.log(slug.current);
+
   const [index, setIndex] = useState(0);
   return (
     <div>
@@ -99,18 +101,24 @@ export const getStaticPaths = async () => {
     }
   }
 `;
+
   const products = await client.fetch(query);
+
   const paths = products.map((product) => ({
     params: {
-      slug: product.slug.current,
+      slug: "",
     },
   }));
+
   return {
     paths,
     fallback: "blocking",
   };
 };
 export const getStaticProps = async ({ params: { slug } }) => {
+  if (!slug) return null;
+
+  console.log(slug.current);
   const query = `*[_type=="product" && slug.current=='${slug}'][0]`;
   const productsQuery = '*[_type=="product"]';
   const product = await client.fetch(query);
