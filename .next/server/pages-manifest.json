@@ -1,16 +1,10 @@
 {
   "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
-  "/_error": "pages/_error.js",
-<<<<<<< HEAD
-<<<<<<< HEAD
+  "/api/hello": "pages/api/hello.js",
   "/": "pages/index.js",
-  "/product/[slug]": "pages/product/[slug].js"
-=======
-=======
-  "/": "pages/index.js",
+  "/login": "pages/login.html",
   "/product/[slug]": "pages/product/[slug].js",
->>>>>>> d7548a74 (neue)
-  "/login": "pages/login.js"
->>>>>>> b62cae9e (increment/decrement button)
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html"
 }
