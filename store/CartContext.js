@@ -35,23 +35,21 @@ export const CartContext = ({ children }) => {
     });
   };
   const onAddHandler = (produkt) => {
+    const ifProduktInCart = cartItems.some((item) => item._id === produkt._id);
     setTotalPrice((prev) => prev + qun * produkt.price);
     setTotalQun((prev) => prev + qun);
     setQun(1);
+    console.log(ifProduktInCart);
 
-    const ifProduktInCart = cartItems.find((item) => item._id === produkt._id);
     if (ifProduktInCart) {
       setCartItems(
         cartItems.map((item) => {
-          toast.success(`${qun} ${item.name} have been added to your cart`);
-
           if (item._id === produkt._id) {
             return {
               ...item,
               qun: item.qun + qun,
             };
           }
-          toast.success(`${item.qun} ${item} have been added to your cart`);
         })
       );
     } else {
