@@ -129,10 +129,14 @@
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	!function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 /******/ 		__webpack_require__.h = function() { return "0a9e9767ced66b86"; }
 =======
 /******/ 		__webpack_require__.h = function() { return "2adefc35b2abc4d4"; }
 >>>>>>> b62cae9e (increment/decrement button)
+=======
+/******/ 		__webpack_require__.h = function() { return "f1242966d158467a"; }
+>>>>>>> d7548a74 (neue)
 /******/ 	}();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
