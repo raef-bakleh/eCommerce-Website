@@ -23,6 +23,7 @@ a {
 }
 .layout {
   padding: 10px;
+  z-inedx: 1000;
 }
 
 .navbar-container {
@@ -301,6 +302,7 @@ span.text-red {
   font-size: 30px;
   display: flex;
   gap: 10px;
+  cursor: pointer;
 }
 .cart-heading {
   display: flex;
@@ -611,6 +613,15 @@ span.text-red {
 }
 .product-max-qty {
   margin-top: 10px;
+}
+.linkedin:hover {
+  background-color: #fff;
+  color: rgb(10, 102, 194);
+}
+.github:hover {
+  color: #fff;
+  background: rgb(30, 29, 29);
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 800px) {
