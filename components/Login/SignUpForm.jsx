@@ -138,16 +138,20 @@ function SignUpForm(props) {
                 <div className={classes.goBackToLogin}>
                   <p>
                     go back to
-                    <Link href={"/"}>
+                    <Link href={"/login"}>
                       <span
-                        style={{ color: "white", textDecoration: "underline" }}
+                        style={{
+                          color: "white",
+                          textDecoration: "underline",
+                          paddingLeft: "2%",
+                        }}
                       >
                         login
                       </span>
                     </Link>
                   </p>
                 </div>
-                or signin using:
+                <p style={{ paddingTop: "4%" }}>or signin using:</p>
                 <div className={classes.icons}>
                   <div className={classes.google} onClick={signupGoogle}>
                     <svg
@@ -200,7 +204,7 @@ function SignUpForm(props) {
                   <p>Forgot your Password?</p>
                   <span
                     onClick={() => {
-                      router.push("/Reset");
+                      router.push("/resetPassword");
                     }}
                     className={classes.resetPassword}
                   >

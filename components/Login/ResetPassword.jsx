@@ -109,11 +109,18 @@ function ResetPassword(props) {
                 Reset
               </button>
 
-              <div className={classes.signUp}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "10px",
+                }}
+                className={classes.signUp}
+              >
                 <div className={classes.goBackToLogin}>
                   <p>
-                    go back to{" "}
-                    <Link href={"/"}>
+                    go back to
+                    <Link href={"/login"}>
                       <span
                         style={{ color: "white", textDecoration: "underline" }}
                       >
@@ -124,7 +131,7 @@ function ResetPassword(props) {
                 </div>
                 don't have an account yet? <br />
                 signup now usign
-                <div className={classes.icons}>
+                <div  className={classes.icons}>
                   <div className={classes.google} onClick={signupGoogle}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -169,16 +176,14 @@ function ResetPassword(props) {
                     </svg>
                   </div>
                   <div className={classes.facebook} onClick={signupFacebook}>
-                    {" "}
                     <BsFacebook fill="#3b5998" size={30} />{" "}
                   </div>
                   <div
                     className={classes.email}
                     onClick={() => {
-                      router.push("/SignUp");
+                      router.push("/signUp");
                     }}
                   >
-                    {" "}
                     <AiOutlineMail fill="#3b4321" size={30} />{" "}
                   </div>
                 </div>

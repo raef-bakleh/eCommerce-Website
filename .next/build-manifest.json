@@ -35,10 +35,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/login.js"
     ],
-    "/product/[slug]": [
+    "/resetPassword": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/product/[slug].js"
+      "static/chunks/pages/resetPassword.js"
     ],
     "/signUp": [
       "static/chunks/webpack.js",
