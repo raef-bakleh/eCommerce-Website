@@ -5,7 +5,6 @@ import { urlFor } from "../lib/client";
 const Product = ({ product: { image, name, price, slug } }) => {
   useEffect(() => {
     // This logs the value of `slug` as it changes
-    console.log("value of slug:", slug);
   }, [slug]);
   if (!slug) return null;
 

@@ -18,12 +18,12 @@ import {
 } from "firebase/firestore";
 
 import "firebase/auth";
-import AuthContext from "../../store/AuthCTX";
+
 import { useRouter } from "next/router";
 import { BsFacebook } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { firebaseApp } from "../../store/firebaseConfig";
-
+import AuthContext from "../../store/AuthCTX";
 function LogIn(props) {
   const authCTX = useContext(AuthContext);
 
@@ -91,7 +91,7 @@ function LogIn(props) {
 
   return (
     <div>
-      {(
+      {
         <div className={classes.wrapper}>
           <div className={classes.logInWrapper}>
             <div className={classes.header}>LogIn</div>
@@ -197,19 +197,19 @@ function LogIn(props) {
                     or go to
                     <span
                       onClick={() => {
-                        router.push("/SignUp");
+                        router.push("/signUp");
                       }}
                       className={classes.resetPassword}
                     >
                       SignUp
                     </span>
-                  </p>{" "}
+                  </p>
                 </div>
                 <div className={classes.forgotPassword}>
                   <p>Forgot your Password?</p>
                   <span
                     onClick={() => {
-                      router.push("/Reset");
+                      router.push("/resetPassword");
                     }}
                     className={classes.resetPassword}
                   >
@@ -220,7 +220,7 @@ function LogIn(props) {
             </form>
           </div>
         </div>
-      )}
+      }
     </div>
   );
 }
