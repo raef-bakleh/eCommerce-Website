@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   AiOutlineMinus,
@@ -11,7 +11,13 @@ import { Context } from "../store/CartContext";
 import { urlFor } from "../lib/client";
 const Cart = () => {
   const cartCTX = useContext(Context);
-  console.log(cartCTX.cartItems);
+  const [savedCart, setSavedCart] = useState(
+    JSON.parse(localStorage.getItem("items")) || []
+  );
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(cartCTX.cartItems));
+  }, [savedCart]);
+
   return (
     <div className="cart-wrapper">
       <div className="cart-container">
@@ -23,7 +29,6 @@ const Cart = () => {
           <AiOutlineLeft />
           <span className="heading"> Your cart</span>
           <span className="cart-num-items">
-            {" "}
             {cartCTX.cartItems.length} items
           </span>
         </button>

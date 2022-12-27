@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Product from "../../components/Product";
 import { client, urlFor } from "../../lib/client";
 import {
@@ -9,10 +9,10 @@ import {
 } from "react-icons/ai";
 import { Context } from "../../store/CartContext";
 const ProductDetails = ({ product, products }) => {
+ 
   const cartCTX = useContext(Context);
 
   const { image, name, details, price, qun, slug } = product;
-  console.log(slug.current);
 
   const [index, setIndex] = useState(0);
   return (

@@ -34,12 +34,39 @@ export const CartContext = ({ children }) => {
       return prevQun - 1;
     });
   };
-  const onAddHandler = (produkt) => {
-    const ifProduktInCart = cartItems.some((item) => item._id === produkt._id);
+
+  // const onAddHandler = (product, qun) => {
+  //   const checkProductInCart = cartItems.find(
+  //     (item) => item._id === product._id
+  //   );
+
+  //   setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * qun);
+  //   setTotalQun((prevTotalQuantities) => prevTotalQuantities + qun);
+
+  //   if (checkProductInCart) {
+  //     const updatedCartItems = cartItems.map((cartProduct) => {
+  //       if (cartProduct._id === product._id)
+  //         return {
+  //           ...cartProduct,
+  //           qun: cartProduct.qun + qun,
+  //         };
+  //     });
+
+  //     setCartItems(updatedCartItems);
+  //   } else {
+  //     product.qun = qun;
+
+  //     setCartItems([...cartItems, { ...product }]);
+  //   }
+
+  //   toast.success(`${qun} ${product.name} added to the cart.`);
+  // };
+
+  const onAddHandler = (produkt, qun) => {
+    const ifProduktInCart = cartItems.find((item) => item._id === produkt._id);
     setTotalPrice((prev) => prev + qun * produkt.price);
     setTotalQun((prev) => prev + qun);
     setQun(1);
-    console.log(ifProduktInCart);
 
     if (ifProduktInCart) {
       setCartItems(
@@ -56,6 +83,11 @@ export const CartContext = ({ children }) => {
       produkt.qun = qun;
       setCartItems([...cartItems, { ...produkt }]);
     }
+    toast.success(`${qun} ${produkt.name} added to the cart.`);
+
+    localStorage.setItem("cartItems", JSON.stringify([cartItems]));
+
+    console.log(cartItems);
   };
 
   const onDeleteHandler = (product) => {
@@ -68,10 +100,7 @@ export const CartContext = ({ children }) => {
     setTotalQun((prev) => prev - product.qun);
     setQun(1);
   };
-
   let foundProdukt;
-  let index;
-
   const changeCartItemQuantity = (id, action) => {
     const allMeals = cartItems;
     const cartItemsWithoutTheFoundProduct = cartItems.filter(
@@ -88,7 +117,6 @@ export const CartContext = ({ children }) => {
         })
       );
 
-      console.log(cartItems);
       setTotalPrice((prev) => prev + foundProdukt.price);
       setTotalQun((prev) => prev + 1);
     } else if (action === "decrement") {

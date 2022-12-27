@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { client } from "../lib/client";
 import {
   Product,
@@ -9,6 +9,7 @@ import {
   Layout,
   Navbar,
 } from "../components";
+import { CartContext, Context } from "../store/CartContext";
 const Home = ({ products, banner }) => {
   return (
     <>
