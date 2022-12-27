@@ -22,6 +22,7 @@ export const CartContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQun, setTotalQun] = useState(0);
   const [qun, setQun] = useState(1);
+  console.log(cartItems);
 
   const increment = () => {
     setQun((prevQty) => prevQty + 1);
@@ -35,38 +36,11 @@ export const CartContext = ({ children }) => {
     });
   };
 
-  // const onAddHandler = (product, qun) => {
-  //   const checkProductInCart = cartItems.find(
-  //     (item) => item._id === product._id
-  //   );
-
-  //   setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * qun);
-  //   setTotalQun((prevTotalQuantities) => prevTotalQuantities + qun);
-
-  //   if (checkProductInCart) {
-  //     const updatedCartItems = cartItems.map((cartProduct) => {
-  //       if (cartProduct._id === product._id)
-  //         return {
-  //           ...cartProduct,
-  //           qun: cartProduct.qun + qun,
-  //         };
-  //     });
-
-  //     setCartItems(updatedCartItems);
-  //   } else {
-  //     product.qun = qun;
-
-  //     setCartItems([...cartItems, { ...product }]);
-  //   }
-
-  //   toast.success(`${qun} ${product.name} added to the cart.`);
-  // };
-  console.log(cartItems);
-
   const onAddHandler = (produkt, qun) => {
     const ifProduktInCart = cartItems.find((item) => item._id === produkt._id);
     setTotalPrice((prev) => prev + qun * produkt.price);
     setTotalQun((prev) => prev + qun);
+
     setQun(1);
 
     if (ifProduktInCart) {
@@ -78,6 +52,7 @@ export const CartContext = ({ children }) => {
               qun: item.qun + qun,
             };
           }
+
           return item;
         })
       );
@@ -86,10 +61,6 @@ export const CartContext = ({ children }) => {
       setCartItems([...cartItems, { ...produkt }]);
     }
     toast.success(`${qun} ${produkt.name} added to the cart.`);
-
-    localStorage.setItem("cartItems", JSON.stringify([cartItems]));
-
-    console.log(cartItems);
   };
 
   const onDeleteHandler = (product) => {
@@ -136,6 +107,10 @@ export const CartContext = ({ children }) => {
       }
     }
   };
+  // if (typeof window !== "undefined") {
+  //   localStorage.setItem("items", JSON.stringify(cartItems));
+  // }
+
   const fincalContext = {
     showCart: showCart,
     setShowCart: setShowCart,

@@ -9,12 +9,10 @@ import {
 } from "react-icons/ai";
 import { Context } from "../../store/CartContext";
 const ProductDetails = ({ product, products }) => {
- 
   const cartCTX = useContext(Context);
-
   const { image, name, details, price, qun, slug } = product;
-
   const [index, setIndex] = useState(0);
+
   return (
     <div>
       <div className="product-detail-container">

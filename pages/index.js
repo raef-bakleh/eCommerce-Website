@@ -11,6 +11,7 @@ import {
 } from "../components";
 import { CartContext, Context } from "../store/CartContext";
 const Home = ({ products, banner }) => {
+
   return (
     <>
       <HeroBanner heroBanner={banner.length && banner[0]} />

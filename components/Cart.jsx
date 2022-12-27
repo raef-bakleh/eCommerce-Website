@@ -9,15 +9,12 @@ import {
 import { TiDeleteOutline } from "react-icons/ti";
 import { Context } from "../store/CartContext";
 import { urlFor } from "../lib/client";
+import AuthContext from "../store/AuthCTX";
+import { useRouter } from "next/router";
 const Cart = () => {
   const cartCTX = useContext(Context);
-  const [savedCart, setSavedCart] = useState(
-    JSON.parse(localStorage.getItem("items")) || []
-  );
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(cartCTX.cartItems));
-  }, [savedCart]);
-
+  const authCTX = useContext(AuthContext);
+  const router = useRouter();
   return (
     <div className="cart-wrapper">
       <div className="cart-container">
@@ -95,7 +92,18 @@ const Cart = () => {
             <h3>€{cartCTX.totalPrice.toFixed(2)}</h3>
           </div>
           <div className="btn-container">
-            <button type="button" className="btn" onClick="">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                if (!authCTX.isLoggedIn) {
+                  cartCTX.setShowCart(false);
+                  router.push("/login");
+                } else {
+                  router.push("/");
+                }
+              }}
+            >
               Pay With Stripe
             </button>
           </div>
