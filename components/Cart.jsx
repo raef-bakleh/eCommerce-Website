@@ -11,6 +11,7 @@ import { Context } from "../store/CartContext";
 import { urlFor } from "../lib/client";
 import AuthContext from "../store/AuthCTX";
 import { useRouter } from "next/router";
+import { toast } from "react-hot-toast";
 const Cart = () => {
   const cartCTX = useContext(Context);
   const authCTX = useContext(AuthContext);
@@ -96,15 +97,19 @@ const Cart = () => {
               type="button"
               className="btn"
               onClick={() => {
-                if (!authCTX.isLoggedIn) {
+                if (cartCTX.totalPrice > 0 && !authCTX.isLoggedIn) {
                   cartCTX.setShowCart(false);
                   router.push("/login");
+                } else if (authCTX.isLoggedIn && cartCTX.totalPrice > 0) {
+                  cartCTX.setShowCart(false);
+                  router.push("/checkout");
                 } else {
-                  router.push("/");
+                  cartCTX.setShowCart(true);
+                  toast.error("add items to your cart");
                 }
               }}
             >
-              Pay With Stripe
+              Proceed to checkout
             </button>
           </div>
         </div>
