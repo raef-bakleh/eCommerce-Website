@@ -61,6 +61,7 @@ export const CartContext = ({ children }) => {
 
   //   toast.success(`${qun} ${product.name} added to the cart.`);
   // };
+  console.log(cartItems);
 
   const onAddHandler = (produkt, qun) => {
     const ifProduktInCart = cartItems.find((item) => item._id === produkt._id);
@@ -77,6 +78,7 @@ export const CartContext = ({ children }) => {
               qun: item.qun + qun,
             };
           }
+          return item;
         })
       );
     } else {
