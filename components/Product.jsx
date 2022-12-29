@@ -3,11 +3,6 @@ import Link from "next/link";
 import { urlFor } from "../lib/client";
 
 const Product = ({ product: { image, name, price, slug } }) => {
-  useEffect(() => {
-    // This logs the value of `slug` as it changes
-  }, [slug]);
-  if (!slug) return null;
-
   return (
     <div>
       <Link href={`/product/${slug.current}`}>

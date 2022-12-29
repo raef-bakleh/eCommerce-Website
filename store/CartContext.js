@@ -22,7 +22,6 @@ export const CartContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQun, setTotalQun] = useState(0);
   const [qun, setQun] = useState(1);
-  console.log(cartItems);
 
   const increment = () => {
     setQun((prevQty) => prevQty + 1);
@@ -107,9 +106,6 @@ export const CartContext = ({ children }) => {
       }
     }
   };
-  // if (typeof window !== "undefined") {
-  //   localStorage.setItem("items", JSON.stringify(cartItems));
-  // }
 
   const fincalContext = {
     showCart: showCart,

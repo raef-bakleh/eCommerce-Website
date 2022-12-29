@@ -27,6 +27,11 @@ export default {
       },
     },
     {
+      name: 'productType',
+      title: 'ProductType',
+      type: 'string',
+    },
+    {
       name: 'price',
       title: 'Price',
       type: 'number',

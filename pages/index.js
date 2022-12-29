@@ -1,17 +1,9 @@
 import React, { useContext, useEffect } from "react";
 import { client } from "../lib/client";
-import {
-  Product,
-  Cart,
-  Footer,
-  FooterBanner,
-  HeroBanner,
-  Layout,
-  Navbar,
-} from "../components";
-import { CartContext, Context } from "../store/CartContext";
-const Home = ({ products, banner }) => {
+import { Product, FooterBanner, HeroBanner } from "../components";
 
+const Home = ({ products, banner }) => {
+  console.log(products);
   return (
     <>
       <HeroBanner heroBanner={banner.length && banner[0]} />
@@ -28,6 +20,7 @@ const Home = ({ products, banner }) => {
     </>
   );
 };
+
 export const getServerSideProps = async () => {
   const query = '*[_type=="product"]';
   const products = await client.fetch(query);

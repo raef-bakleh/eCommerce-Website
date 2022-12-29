@@ -8,10 +8,7 @@ const Footer = () => {
       <p>
         Developed by
         <Link href={"https://github.com/raef-bakleh"} target="_blank">
-          <span  className="githubLink">
-        
-            Raef Bakleh{" "}
-          </span>
+          <span className="githubLink">Raef Bakleh</span>
         </Link>
       </p>
       <div className="iconsLinks ">

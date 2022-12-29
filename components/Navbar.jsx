@@ -17,30 +17,46 @@ const Navbar = () => {
       <p className="logo">
         <Link href={"/"}>Homepage</Link>
       </p>
-      {!authCTX.isLoggedIn && (
+      <div className="pagesLinks">
         <p className="logo">
-          <Link href={"/login"}>Login</Link>
+          <Link href={"/headphones"}>Headphones</Link>
         </p>
-      )}
-      {authCTX.isLoggedIn && (
-        <div>
-          <p>Hello {authCTX.userName} </p>
-        </div>
-      )}
-      {authCTX.isLoggedIn && (
-        <p type="button" className="cart-icon" onClick={signab}>
-          signOut
+        <p className="logo">
+          <Link href={"/earphones"}>Earphones</Link>
         </p>
-      )}
-      <button
-        type="button"
-        className="cart-icon"
-        onClick={() => cartCTX.setShowCart(!cartCTX.showCart)}
-      >
-        <AiOutlineShopping />
-        <span className="cart-item-qty">{cartCTX.totalQun}</span>
-      </button>
-      {cartCTX.showCart && <Cart />}
+        <p className="logo">
+          <Link href={"/smartwatches"}>Smartwatches</Link>
+        </p>
+        <p className="logo">
+          <Link href={"/others"}>Others</Link>
+        </p>
+      </div>
+      <div className="cart-nav">
+        {!authCTX.isLoggedIn && (
+          <p className="logo">
+            <Link href={"/login"}>Login</Link>
+          </p>
+        )}
+        {authCTX.isLoggedIn && (
+          <div>
+            <p>Hello {authCTX.userName} </p>
+          </div>
+        )}
+        {authCTX.isLoggedIn && (
+          <p type="button" className="cart-icon" onClick={signab}>
+            signOut
+          </p>
+        )}
+        <button
+          type="button"
+          className="cart-icon"
+          onClick={() => cartCTX.setShowCart(!cartCTX.showCart)}
+        >
+          <AiOutlineShopping />
+          <span className="cart-item-qty">{cartCTX.totalQun}</span>
+        </button>
+        {cartCTX.showCart && <Cart />}
+      </div>
     </div>
   );
 };
