@@ -91,7 +91,7 @@ const Checkout = () => {
                   onClick={() => {
                     if (cartCTX.totalPrice > 0) {
                       cartCTX.setShowCart(false);
-                      router.push("/login");
+                      router.push("/checkoutInfo");
                     } else if (authCTX.isLoggedIn && cartCTX.totalPrice > 0) {
                       router.push("/cart");
                     } else {

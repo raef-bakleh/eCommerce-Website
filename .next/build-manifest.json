@@ -30,20 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/checkout": [
+    "/checkoutInfo": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/checkout.js"
-    ],
-    "/login": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/login.js"
-    ],
-    "/product/[slug]": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/product/[slug].js"
+      "static/chunks/pages/checkoutInfo.js"
     ]
   },
   "ampFirstPages": []

@@ -23,6 +23,95 @@ a {
   margin: 6px 18px;
   position: relative;
 }
+.checkoutInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding: 20px 50px;
+  border-radius: 15px;
+  gap: 50px;
+}
+.checkoutDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 70%;
+  background-color: rgb(224, 224, 224);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  border-radius: 15px;
+}
+.checkout-product-image {
+  width: 80px;
+  border-radius: 15px;
+  background-color: rgba(173, 172, 172, 0.523);
+}
+.summary {
+  width: 30%;
+  background-color: rgb(224, 224, 224);
+  border-radius: 15px;
+  max-height: 500px;
+  padding: 20px;
+}
+.itemsCheckout {
+  max-height: 400px;
+  overflow: scroll;
+  gap: 20px;
+}
+.ordered {
+  display: flex;
+  flex-direction: row;
+  gap: 15%;
+  padding-bottom: 20px;
+}
+.leftOrdered {
+  display: flex;
+  flex: row;
+  gap: 5%;
+}
+.topTwo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 6%;
+}
+.checkoutInfo input {
+  width: 50%;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 20px;
+}
+.topTwo label {
+  position: relative;
+  top: -25px;
+  left: -45%;
+  font-weight: 700;
+}
+.underOne input {
+  width: 45%;
+}
+.underOne label {
+  position: relative;
+  top: -40px;
+  left: -46%;
+  font-weight: 700;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.form p {
+  color: rgb(213, 148, 29);
+  margin-top: 30px;
+  margin-bottom: -30px;
+}
 .cart-nav {
   display: flex;
   flex-direction: row-reverse;
