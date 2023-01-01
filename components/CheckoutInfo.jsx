@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import { urlFor } from "../lib/client";
 import { Context } from "../store/CartContext";
+import { BsBackspace } from "react-icons/bs";
 
 const CheckoutInfo = () => {
   const cartCTX = useContext(Context);
@@ -10,38 +11,48 @@ const CheckoutInfo = () => {
   const shippingCost = "4.99";
   return (
     <div className="checkoutInfo">
+      <div className="goBack">
+        <BsBackspace onClick={() => router.push("/checkout")} /> <p>Go Back</p>
+      </div>
       <div className="checkoutDetail">
         <h1>CHECKOUT</h1>
         <form className="form">
           <p>Billing Details</p>
 
           <div className="topTwo">
-            <input id="name" placeholder="Name" />
-            <label htmlFor="name"> name</label>
-            <input placeholder="email" />
-            <label htmlFor="name"> email</label>
+            <input id="Name" placeholder="Name" />
+            <label htmlFor="Name"> Name</label>
+            <input placeholder="Email" />
+            <label htmlFor="Email"> Email</label>
           </div>
           <div className="underOne">
-            <input id="phonenumber" placeholder="phonenumber" />{" "}
-            <label htmlFor="phonenumber"> phonenumber</label>
+            <input id="Phonenumber" placeholder="Phonenumber" />
+            <label htmlFor="Phonenumber"> Phonenumber</label>
           </div>
         </form>
         <form className="form">
           <p>SHIPPING INFO</p>
 
           <div className="topTwo">
-            <input id="address" placeholder="address" />
-            <label htmlFor="address"> address</label>
-            <input placeholder="PLZ" />
-            <label htmlFor="PLZ"> PLZ</label>
+            <input id="Country" placeholder="Country" />
+            <label htmlFor="Country"> Country</label>
+            <input placeholder="City" />
+            <label htmlFor="City"> City</label>
+          </div>
+          <div className="middleOne">
+            <input
+              id="Address"
+              placeholder="Address"
+              style={{ width: "96%" }}
+            />
+            <label htmlFor="Address">Address</label>
           </div>
           <div className="underOne">
-            <input id="city" placeholder="city" />{" "}
-            <label htmlFor="city"> city</label>
+            <input id="PLZ" placeholder="PLZ" />{" "}
+            <label htmlFor="PLZ"> PLZ</label>
           </div>
         </form>
       </div>
-
       <div className="summary">
         <h1>SUMMARY</h1>
         <div>
@@ -70,9 +81,8 @@ const CheckoutInfo = () => {
 
                   <h5
                     style={{
-                      paddingTop: "1%",
                       alignSelf: "center",
-                      justifySelf: "flex-end",
+                      justifyContent: "flex-end",
                       color: "grey",
                       fontWeight: "700",
                     }}
@@ -83,7 +93,26 @@ const CheckoutInfo = () => {
               );
             })}
           </div>
-          <table>
+          <div className="orderSummary">
+            <div className="totalSummary">
+              <h3 style={{ color: "rgb(90, 89, 89)" }}>TOTAL</h3>
+              <h3>€{cartCTX.totalPrice.toFixed(2)}</h3>
+            </div>
+            <div className="totalSummary">
+              <h3 style={{ color: "rgb(90, 89, 89)" }}>SHIPPING</h3>
+              <h3>€{shippingCost}</h3>
+            </div>
+            <div className="totalSummary">
+              <h3 style={{ color: "rgb(90, 89, 89)" }}>GRAND TOTAL</h3>
+              <h3 style={{ color: "rgb(213, 148, 29)" }}>
+                €
+                {(
+                  parseFloat(cartCTX.totalPrice) + parseFloat(shippingCost)
+                ).toFixed(2)}
+              </h3>
+            </div>
+          </div>
+          {/* <table>
             <tr>
               <th> TOTAL</th>
               <th>€{cartCTX.totalPrice.toFixed(2)}</th>
@@ -100,8 +129,8 @@ const CheckoutInfo = () => {
                 ).toFixed(2)}
               </th>
             </tr>
-          </table>
-          <button type="button" >
+          </table> */}
+          <button type="button" className="buttonCheckout">
             CONTINUE & PAY
           </button>
         </div>

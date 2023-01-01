@@ -15,13 +15,20 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
 .navbar-container {
+  padding: 10px;
+  background-color: black;
   width: 100%;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-between;
   gap: 16%;
+  padding-left: 5%;
+  padding-right: 5%;
+
   display: flex;
-  margin: 6px 18px;
   position: relative;
+  font-size: 50%;
 }
 .checkoutInfo {
   display: flex;
@@ -29,9 +36,12 @@ a {
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding: 20px 50px;
+  padding: 100px 50px;
   border-radius: 15px;
   gap: 50px;
+}
+.checkoutInfo p {
+  margin-left: -10px;
 }
 .checkoutDetail {
   display: flex;
@@ -54,7 +64,8 @@ a {
   width: 30%;
   background-color: rgb(224, 224, 224);
   border-radius: 15px;
-  max-height: 500px;
+  max-height: 700px;
+  height: 100%;
   padding: 20px;
 }
 .itemsCheckout {
@@ -67,11 +78,12 @@ a {
   flex-direction: row;
   gap: 15%;
   padding-bottom: 20px;
+  justify-content: space-between;
 }
 .leftOrdered {
   display: flex;
   flex: row;
-  gap: 5%;
+  gap: 15%;
 }
 .topTwo {
   width: 100%;
@@ -79,8 +91,13 @@ a {
   flex-direction: row;
   padding-top: 6%;
 }
+.topShipping {
+  padding-top: 6%;
+  width: 100%;
+}
+
 .checkoutInfo input {
-  width: 50%;
+  width: 100%;
   height: 50px;
   border-radius: 10px;
   border: none;
@@ -101,7 +118,20 @@ a {
   left: -46%;
   font-weight: 700;
 }
-
+.middleOne label {
+  position: absolute;
+  font-weight: 700;
+  top: 710px;
+  left: 125px;
+}
+.middleOne {
+}
+.orderSummary {
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -112,16 +142,40 @@ a {
   margin-top: 30px;
   margin-bottom: -30px;
 }
+.goBack {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  position: absolute;
+  top: 140px;
+  left: 90px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.buttonCheckout {
+  width: 100%;
+  border: none;
+  height: 50px;
+  border-radius: 12px;
+  color: white;
+  background-color: rgb(213, 148, 29);
+  align-self: flex-end;
+  align-items: flex-end;
+  margin-top: 20px;
+}
 .cart-nav {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
   gap: 20%;
 }
 .pagesLinks {
   display: flex;
   flex-direction: row;
   gap: 15%;
-  margin-left: -25%;
+  margin-left: -15%;
 }
 .main-container {
   max-width: 1400px;
@@ -130,9 +184,12 @@ a {
   min-height: 550px;
 }
 .layout {
-  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   z-inedx: 1000;
   height: 100%;
+  min-height: 100vh;
 }
 
 .marquee-text {
@@ -173,7 +230,7 @@ span.text-red {
 }
 .logo {
   color: gray;
-  font-size: 18px;
+  font-size: 15px;
 }
 .iconsLinks {
   display: flex;
@@ -181,7 +238,7 @@ span.text-red {
   gap: 10%;
 }
 .cart-icon {
-  font-size: 25px;
+  font-size: 15px;
   color: gray;
   cursor: pointer;
   position: relative;
@@ -281,9 +338,9 @@ span.text-red {
 .hero-banner-image {
   position: absolute;
   top: 0%;
-  right: 20%;
+  right: 10%;
   width: 450px;
-  height: 450px;
+  height: 450px; 
 }
 
 .desc {
@@ -405,14 +462,12 @@ span.text-red {
   padding: 40px 10px;
 }
 .footer-container {
+  margin-top: 10%;
+  width: 100%;
   background-color: black;
   padding-top: 40px;
   padding-bottom: 40px;
   color: white;
-  position: static;
-  bottom: 0;
-  margin-top: 5%;
-  right: 40%;
   text-align: center;
   font-weight: 700;
   display: flex;
@@ -506,6 +561,11 @@ span.text-red {
 }
 .total h3 {
   font-size: 22px;
+}
+.totalSummary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .remove-item {
   font-size: 24px;
@@ -734,13 +794,14 @@ span.text-red {
   font-weight: 600;
 }
 .pageProduktContainer {
+  flex-wrap: wrap;
   padding-top: 10%;
   display: flex;
   flex-direction: row;
-  align-self: center;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 10%;
+  row-gap: 50px;
+  column-gap: 10%;
 }
 .success .description {
   font-size: 16px;
@@ -773,15 +834,94 @@ span.text-red {
   border-radius: 15px;
 }
 
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: absolute;
+  width: 36px;
+  height: 30px;
+  left: 1%;
+  top: 15%;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: white;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: #a90000;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  transition: none;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #373a47;
+  padding: 2.5em 1.5em 0;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 @media screen and (max-width: 800px) {
   .hero-banner-container {
     height: 560px;
   }
+  .buyNow-Hereo-Banner {
+    position: absolute;
+    top: 60%;
+  }
   .hero-banner-image {
-    width: 77%;
+    position: absolute;
+    width: 57%;
     height: 62%;
-    top: -2%;
-    right: -6%;
+    right: 0;
   }
   .footer-banner-container {
     height: 560px;
