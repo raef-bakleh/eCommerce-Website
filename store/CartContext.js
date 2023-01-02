@@ -14,6 +14,7 @@ export const Context = createContext({
   onAddHandler: () => {},
   onDeleteHandler: () => {},
   changeCartItemQuantity: () => {},
+  onBuyNowHanlder: () => {},
 });
 
 export const CartContext = ({ children }) => {
@@ -61,7 +62,13 @@ export const CartContext = ({ children }) => {
     }
     toast.success(`${qun} ${produkt.name} added to the cart.`);
   };
-
+  const onBuyNowHanlder = (product, qun) => {
+    product.qun = 1;
+    setCartItems([product]);
+    setTotalPrice(product.price);
+    setQun(1);
+    setTotalQun(qun);
+  };
   const onDeleteHandler = (product) => {
     const restItemsInCart = cartItems.filter((item) => {
       return item._id !== product._id;
@@ -108,6 +115,7 @@ export const CartContext = ({ children }) => {
   };
 
   const fincalContext = {
+    onBuyNowHanlder: onBuyNowHanlder,
     showCart: showCart,
     setShowCart: setShowCart,
     cartItems: cartItems,

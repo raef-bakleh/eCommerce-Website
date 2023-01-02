@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { client } from "../lib/client";
 import { Product, FooterBanner, HeroBanner } from "../components";
+import Sidebar from "../components/Sidebar";
 
 const Home = ({ products, banner }) => {
-  console.log(products);
   return (
     <>
       <HeroBanner heroBanner={banner.length && banner[0]} />

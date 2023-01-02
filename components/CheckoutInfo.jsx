@@ -7,7 +7,6 @@ import { BsBackspace } from "react-icons/bs";
 const CheckoutInfo = () => {
   const cartCTX = useContext(Context);
   const router = useRouter();
-  console.log(cartCTX.cartItems);
   const shippingCost = "4.99";
   return (
     <div className="checkoutInfo">
@@ -112,24 +111,7 @@ const CheckoutInfo = () => {
               </h3>
             </div>
           </div>
-          {/* <table>
-            <tr>
-              <th> TOTAL</th>
-              <th>€{cartCTX.totalPrice.toFixed(2)}</th>
-            </tr>
-            <tr>
-              <th>SHIPPING</th>
-              <th>€{shippingCost}</th>
-            </tr>
-            <tr>
-              <th>GRAND TOTAL</th>
-              <th>
-                {(
-                  parseFloat(cartCTX.totalPrice) + parseFloat(shippingCost)
-                ).toFixed(2)}
-              </th>
-            </tr>
-          </table> */}
+
           <button type="button" className="buttonCheckout">
             CONTINUE & PAY
           </button>

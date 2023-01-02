@@ -82,7 +82,6 @@ const Checkout = () => {
               <div className="total">
                 <h3>TotalAmount</h3>
                 <h3>€{cartCTX.totalPrice.toFixed(2)}</h3>
-                {console.log(cartCTX.totalPrice)}
               </div>
               <div className="btn-container">
                 <button

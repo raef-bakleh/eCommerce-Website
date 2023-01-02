@@ -8,11 +8,15 @@ import {
   AiOutlineStar,
 } from "react-icons/ai";
 import { Context } from "../../store/CartContext";
+import { useRouter } from "next/router";
 const ProductDetails = ({ product, products }) => {
   const cartCTX = useContext(Context);
   const { image, name, details, price, qun, slug } = product;
   const [index, setIndex] = useState(0);
-
+  const buyNowHandler = (product) => {
+    cartCTX.onAddHandler(product, cartCTX.qun);
+  };
+  const router = useRouter();
   return (
     <div>
       <div className="product-detail-container">
@@ -72,7 +76,14 @@ const ProductDetails = ({ product, products }) => {
             >
               Add to Cart
             </button>
-            <button type="button" className="buy-now">
+            <button
+              type="button"
+              onClick={() => {
+                router.push("/checkoutInfo");
+                cartCTX.onBuyNowHanlder(product, cartCTX.qun);
+              }}
+              className="buy-now"
+            >
               Buy Now
             </button>
           </div>

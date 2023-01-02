@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import { AiOutlineShopping } from "react-icons/ai";
+import { AiFillPropertySafety, AiOutlineShopping } from "react-icons/ai";
 import { CartContext, Context } from "../store/CartContext";
 import Cart from "./Cart";
+import { Cross as Hamburger } from "hamburger-react";
 
 import AuthContext from "../store/AuthCTX";
-const Navbar = () => {
+const Navbar = (props) => {
   const [winSize, setWinSize] = useState({
     height: undefined,
     width: undefined,
@@ -26,17 +27,32 @@ const Navbar = () => {
   }
 
   const size = useWindowSize();
-  console.log(size);
   const cartCTX = useContext(Context);
   const authCTX = useContext(AuthContext);
   const signab = () => {
     authCTX.logOut();
     localStorage.setItem("token", "");
   };
-
+  const closeNavbar = () => {
+    props.stateChange.setSideBarToggel(!props.stateChange.sidebarToggel);
+  };
   return (
     <div className="navbar-container">
-      <p className="logo">
+      {winSize.width < 800 && (
+        <div className="hamburgerOpenClose">
+          <Hamburger
+            toggled={props.stateChange.sidebarToggel}
+            color="white"
+            onToggle={closeNavbar}
+            direction={"right"}
+            duration={0.3}
+          />
+        </div>
+      )}
+      <p
+        className="logo"
+        style={{ marginLeft: winSize.width < 800 ? "-20%" : "0" }}
+      >
         <Link href={"/"}>Homepage</Link>
       </p>
 

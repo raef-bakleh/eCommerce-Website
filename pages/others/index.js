@@ -8,7 +8,6 @@ const HeadPhones = ({ products }) => {
       item.productType !== "earPhones" &&
       item.productType !== "HeadPhones"
   );
-  console.log(products);
   const router = useRouter();
   return (
     <div className="pageProduktContainer">
