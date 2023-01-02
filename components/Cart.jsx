@@ -114,6 +114,10 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      <div
+        className="cart-overlay"
+        onClick={() => cartCTX.setShowCart(false)}
+      ></div>
     </div>
   );
 };

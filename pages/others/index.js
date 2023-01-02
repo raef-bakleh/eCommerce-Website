@@ -13,16 +13,25 @@ const HeadPhones = ({ products }) => {
     <div className="pageProduktContainer">
       {actualProducts.map((product) => {
         return (
-          <div onClick={() => router.push(`/product/${product.slug.current}`)}>
-            <div className="product-card">
+          <div>
+            <div className="product-card-page">
               <img
                 src={urlFor(product.image[0])}
                 width={250}
                 height={250}
                 className="product-image"
               />
-              <p className="product-name">{product.name}</p>
-              <p className="product-price">€{product.price}</p>
+              <div className="product-details-container">
+                <p className="product-name">{product.name}</p>
+                <p className="product-price">€{product.price}</p>
+              </div>
+              <button
+                type="button"
+                className="product-detail-button"
+                onClick={() => router.push(`/product/${product.slug.current}`)}
+              >
+                See Product
+              </button>
             </div>
           </div>
         );

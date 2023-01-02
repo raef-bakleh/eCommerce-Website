@@ -2,8 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { client } from "../lib/client";
 import { Product, FooterBanner, HeroBanner } from "../components";
 import Sidebar from "../components/Sidebar";
-
+import AuthContext from "../store/AuthCTX";
 const Home = ({ products, banner }) => {
+  const authCTX = useContext(AuthContext);
+  console.log(authCTX.isLoggedIn);
+
   return (
     <>
       <HeroBanner heroBanner={banner.length && banner[0]} />

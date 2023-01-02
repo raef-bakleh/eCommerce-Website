@@ -23,6 +23,7 @@ import {
 import Link from "next/link";
 import { firebaseApp } from "../../store/firebaseConfig";
 import AuthContext from "../../store/AuthCTX";
+import { toast } from "react-hot-toast";
 function SignUpForm(props) {
   const authCTX = useContext(AuthContext);
   const router = useRouter();
@@ -54,6 +55,12 @@ function SignUpForm(props) {
     authCTX.logIn(user.accessToken, user.displayName);
     router.push("/");
   };
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
   const [username, setUsername] = useState("");
   const [passwort, setPassword] = useState("");
 
@@ -66,28 +73,25 @@ function SignUpForm(props) {
         passwort
       );
       const user = res.user;
-      const q = query(collection(db, "user"), where("uid" == user.uid));
-      const docs = await getDocs(q);
-      await addDoc(collection(db, "users"), {
-        userId: user.uid,
-        authProvider: "local",
-        username,
-      });
-      await router.push("/");
+      // const q = query(collection(db, "user"), where("uid" == user.uid));
+      // const docs = await getDocs(q);
+      // await addDoc(collection(db, "users"), {
+      //   userId: user.uid,
+      //   authProvider: "local",
+      //   username,
+      // });
+      toast.success("user Created you will be redirected to Login");
+      setTimeout(() => {
+        router.push("/login");
+      }, 2500);
     } catch (err) {
-      alert(err.message);
+      toast.error(err.message);
     }
   };
   if (typeof window !== "undefined") {
     const userID = JSON.parse(localStorage.getItem("user"));
   }
 
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
   return (
     <div>
       {!authCTX.isLoggedIn && (

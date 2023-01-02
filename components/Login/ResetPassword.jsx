@@ -15,6 +15,7 @@ import { AiOutlineMail } from "react-icons/ai";
 import Link from "next/link";
 import { firebaseApp } from "../../store/firebaseConfig";
 import AuthContext from "../../store/AuthCTX";
+import { toast } from "react-hot-toast";
 
 function ResetPassword(props) {
   const authCTX = useContext(AuthContext);
@@ -60,9 +61,9 @@ function ResetPassword(props) {
     event.preventDefault();
     try {
       await sendPasswordResetEmail(googleAuth, username);
-      alert("an Email has been sent please check you inbox");
+      toast.success("an Email has been sent please check you inbox");
     } catch (err) {
-      alert(err.message);
+      toast.error(err.message);
     }
   };
 
@@ -131,7 +132,7 @@ function ResetPassword(props) {
                 </div>
                 don't have an account yet? <br />
                 signup now usign
-                <div  className={classes.icons}>
+                <div className={classes.icons}>
                   <div className={classes.google} onClick={signupGoogle}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

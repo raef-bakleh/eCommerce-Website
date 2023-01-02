@@ -3,6 +3,5 @@
   "/_document": "pages/_document.js",
   "/_error": "pages/_error.js",
   "/headphones": "pages/headphones.js",
-  "/product/[slug]": "pages/product/[slug].js",
   "/": "pages/index.js"
 }

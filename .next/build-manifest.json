@@ -30,10 +30,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/checkoutInfo": [
+    "/headphones": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/checkoutInfo.js"
+      "static/chunks/pages/headphones.js"
+    ],
+    "/login": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/login.js"
+    ],
+    "/signUp": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/signUp.js"
     ]
   },
   "ampFirstPages": []

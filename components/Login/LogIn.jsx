@@ -24,10 +24,9 @@ import { BsFacebook } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { firebaseApp } from "../../store/firebaseConfig";
 import AuthContext from "../../store/AuthCTX";
+import { toast } from "react-hot-toast";
 function LogIn(props) {
   const authCTX = useContext(AuthContext);
-
-  console.log(authCTX.isLoggedIn);
 
   const router = useRouter();
   const googleAuth = getAuth(firebaseApp);
@@ -38,7 +37,6 @@ function LogIn(props) {
     const { user } = await signInWithPopup(googleAuth, provider);
     localStorage.setItem("token", user.accessToken);
     localStorage.setItem("username", user.displayName);
-    console.log(user.displayName);
     authCTX.logIn(user.accessToken, user.displayName);
 
     router.push("/");
@@ -62,6 +60,12 @@ function LogIn(props) {
   };
   const [username, setUsername] = useState("");
   const [passwort, setPassword] = useState("");
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
   const signInEmal = async (username, passwort) => {
     event.preventDefault();
     try {
@@ -71,24 +75,15 @@ function LogIn(props) {
         passwort
       );
       const user = response.user;
-      const q = query(collection(db, "user"), where("uid" == user.uid));
-      const docs = await getDocs(q);
+      localStorage.setItem("token", user.refreshToken);
+      authCTX.logIn(user.refreshToken, user.displayName);
+      // const q = query(collection(db, "user"), where("uid" == user.uid));
+      // const docs = await getDocs(q);
       router.push("/");
-
-      authCTX.isLoggedIn(true);
-      authCTX.token(user.accessToken);
     } catch (err) {
-      alert(err.message);
+      toast.error(err.message);
     }
   };
-
-  const handleUsername = (e) => {
-    setUsername(e.target.value);
-  };
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
-
   return (
     <div>
       {
