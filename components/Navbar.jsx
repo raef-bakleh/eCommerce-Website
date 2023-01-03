@@ -4,8 +4,10 @@ import { AiFillPropertySafety, AiOutlineShopping } from "react-icons/ai";
 import { CartContext, Context } from "../store/CartContext";
 import Cart from "./Cart";
 import { Cross as Hamburger } from "hamburger-react";
-
+import { BiUserCircle } from "react-icons/bi";
 import AuthContext from "../store/AuthCTX";
+import DropDown from "./DropDown";
+
 const Navbar = (props) => {
   const [winSize, setWinSize] = useState({
     height: undefined,
@@ -78,15 +80,15 @@ const Navbar = (props) => {
             <Link href={"/login"}>Login</Link>
           </p>
         )}
-        {authCTX.isLoggedIn && (
+        {/* {authCTX.isLoggedIn && (
           <div>
             <p>Hello {authCTX.userName} </p>
           </div>
-        )}
+        )} */}
         {authCTX.isLoggedIn && (
-          <p type="button" className="cart-icon" onClick={signab}>
-            signOut
-          </p>
+          <div className="user-drop-down">
+            <DropDown />
+          </div>
         )}
         <button
           type="button"

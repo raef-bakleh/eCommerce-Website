@@ -20,18 +20,22 @@ a {
 }
 
 .navbar-container {
-  padding: 10px;
+  padding-top: 1%;
+  padding-bottom: 1%;
   background-color: black;
   width: 100%;
   align-items: center;
   gap: 16%;
   padding-left: 5%;
-  padding-right: 5%;
+  padding-right: 10%;
   align-items: center;
   justify-content: space-between;
   display: flex;
   position: relative;
   font-size: 50%;
+}
+.navbar-container p {
+  margin: 0;
 }
 
 .checkoutInfo {
@@ -235,7 +239,12 @@ span.text-red {
   margin-left: 6px;
 }
 .logo {
-  color: gray;
+  color: gray !important;
+  font-size: 15px;
+}
+.logo a {
+  text-decoration: none;
+  color: gray !important;
   font-size: 15px;
 }
 .iconsLinks {
@@ -355,6 +364,7 @@ span.text-red {
   height: 500px;
   line-height: 0.9;
   width: 100%;
+  margin-top: 1%;
 }
 .hero-banner-container .beats-solo {
   font-size: 20px;
@@ -365,7 +375,6 @@ span.text-red {
   background-color: #f02d34;
   color: white;
   border: none;
-  margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
@@ -640,7 +649,7 @@ span.text-red {
   width: 400px;
   margin: auto;
 }
-.btn {
+.btn-container .btn {
   width: 100%;
   max-width: 400px;
   padding: 10px 12px;
@@ -656,8 +665,21 @@ span.text-red {
   transform: scale(1, 1);
   transition: transform 0.5s ease;
 }
-.btn:hover {
+.btn-container .btn:hover {
   transform: scale(1.1, 1.1);
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 12px;
+  border-radius: 15px;
+  border: none;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-top: 40px;
+  text-transform: uppercase;
+  background-color: #f02d34;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.5s ease;
 }
 .product-detail-container {
   display: flex;
@@ -951,6 +973,33 @@ span.text-red {
   font-size: 40px;
   color: white;
   transition: all 1s ease;
+}
+.user-drop-down {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 13%;
+  right: 2%;
+  z-index: 10000;
+}
+.user-drop-down .btn {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+}
+
+.user-drop-down .btn:hover {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+}
+
+.user-drop-down .btn::after {
+  content: none;
+}
+#nav-dropdown {
+  background-color: white;
 }
 
 @media screen and (max-width: 800px) {
