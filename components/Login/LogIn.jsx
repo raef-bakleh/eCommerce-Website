@@ -56,7 +56,7 @@ function LogIn(props) {
     const { user } = await signInWithPopup(googleAuth, provider);
     localStorage.setItem("token", user.accessToken);
     authCTX.logIn(user.accessToken, user.displayName);
-    // router.push("/");
+     router.push("/");
   };
   const [username, setUsername] = useState("");
   const [passwort, setPassword] = useState("");
